@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karishma Verma | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lilita+One&family=Carter+One&family=Mitr:wght@400;500&family=Kanit:wght@500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+        <style>
+        :root {
+            --bg-color: #161d18;
+            --second-bg-color: #3e4140fb;
+            --text-color: white;
+            --main-color: skyblue;
+            --nav-color: #1b1b19;
+            --box-shadow: 0 0 1rem var(--bg-color);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            transition: all 0.2s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--nav-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--main-color);
+        }
+
+        .navbar a {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-left: 3rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--main-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        #icon {
+            font-size: 3rem;
+            color: var(--text-color);
+            cursor: pointer;
+            display: none;
+        }
+
+        /* Home Section */
+        .home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .content {
+            max-width: 60rem;
+        }
+
+        .content h3 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Lilita One', cursive;
+            margin-bottom: 1rem;
+        }
+
+        .content h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            font-family: 'Carter One', cursive;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .content p {
+            font-size: 1.8rem;
+            font-family: 'Mitr', sans-serif;
+            margin-bottom: 3rem;
+        }
+
+        .text {
+            color: var(--main-color);
+        }
+
+        .fallow {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .fallow a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: transparent;
+            border: 0.2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2.5rem;
+            color: var(--main-color);
+            transition: 0.5s;
+        }
+
+        .fallow a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.8rem;
+            color: var(--second-bg-color);
+            font-weight: 600;
+            letter-spacing: 0.1rem;
+            transition: 0.5s;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+            transform: translateY(-3px);
+        }
+
+        .pic {
+            position: relative;
+            width: 35vw;
+            height: 35vw;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-2.4rem); }
+            100% { transform: translateY(0); }
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(rgb(86, 86, 209), #6cd2e4);
+        }
+
+        .circle span:nth-child(1) {
+            filter: blur(10px);
+        }
+
+        .devpic {
+            position: relative;
+            width: 95%;
+            height: 95%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1rem solid var(--bg-color);
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .devpic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--second-bg-color);
+        }
+
+        .heading {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .heading span {
+            color: var(--main-color);
+        }
+
+        .row h2 {
+            font-size: 3.5rem;
+            font-family: 'Mitr', sans-serif;
+            margin-bottom: 2rem;
+        }
+
+        .row p {
+            font-size: 1.8rem;
+            font-family: 'Mitr', sans-serif;
+            margin-bottom: 3rem;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .box1 {
+            flex: 1 1 30rem;
+            background: var(--bg-color);
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .box1 p {
+            font-size: 1.8rem;
+            margin: 1rem 0;
+        }
+
+        .box1 p span {
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .coding h1 {
+            font-size: 3.5rem;
+            color: var(--main-color);
+            font-family: 'Lilita One', cursive;
+            margin-bottom: 3rem;
+        }
+
+        .codingContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .box2 {
+            flex: 1 1 15rem;
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 2rem;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 0.2rem solid transparent;
+            transition: 0.5s;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .box2:hover {
+            border-color: var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        .box2 h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .box2 p {
+            font-size: 1.4rem;
+        }
+
+        .box2 img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding-bottom: 10rem;
+        }
+
+        .scontainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+
+        .box {
+            flex: 1 1 40rem;
+            background: var(--second-bg-color);
+            padding: 3rem 2rem;
+            border-radius: 2rem;
+            box-shadow: var(--box-shadow);
+            border: 0.2rem solid var(--bg-color);
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .box:hover {
+            border-color: var(--main-color);
+            transform: translateY(-10px);
+        }
+
+        .box i {
+            font-size: 5rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+
+        .box h3 {
+            font-size: 2.5rem;
+            font-family: 'Carter One', cursive;
+            margin-bottom: 1rem;
+        }
+
+        .box h4 {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+
+        .box p {
+            font-size: 1.6rem;
+            font-family: 'Mitr', sans-serif;
+        }
+
+        /* Portfolio Section */
+        .project {
+            background: var(--second-bg-color);
+        }
+
+        .projectContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 3rem;
+        }
+
+        .Pbox {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 30rem;
+        }
+
+        .Pbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .Pbox:hover img {
+            transform: scale(1.1);
+        }
+
+        .layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), var(--main-color));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 4rem;
+            transform: translateY(100%);
+            transition: 0.5s;
+        }
+
+        .Pbox:hover .layer {
+            transform: translateY(0);
+        }
+
+        .layer h2 {
+            font-size: 3rem;
+            color: var(--bg-color);
+            margin-bottom: 1rem;
+        }
+
+        .layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+            margin-top: 1rem;
+        }
+
+        .layer a i {
+            font-size: 2rem;
+            color: var(--second-bg-color);
+        }
+
+        /* Contact Section */
+        .contact form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        .ibox {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .ibox input,
+        textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--second-bg-color);
+            border-radius: 0.8rem;
+            margin: 0.7rem 0;
+            border: none;
+        }
+
+        .ibox input {
+            width: 49%;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .contact .btn {
+            margin-top: 2rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 9%;
+            background: var(--second-bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .ftext p {
+            font-size: 1.6rem;
+        }
+
+        .ficon a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.8rem;
+            background: var(--main-color);
+            border-radius: 0.8rem;
+            transition: 0.5s;
+        }
+
+        .ficon a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .ficon a i {
+            font-size: 2.4rem;
+            color: var(--second-bg-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media (max-width: 991px) {
+            section {
+                padding: 10rem 3% 2rem;
+            }
+
+            .footer {
+                padding: 2rem 3%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+
+            .navbar.active {
+                left: 0;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+
+            .home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content {
+                margin-top: 10rem;
+            }
+
+            .pic {
+                width: 50vw;
+                height: 50vw;
+                margin-top: 4rem;
+            }
+
+            .devpic {
+                width: 95%;
+                height: 95%;
+            }
+
+            .ibox input {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .footer {
+                flex-direction: column-reverse;
+                gap: 2rem;
+            }
+
+            .ftext p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Karishma<span>Verma</span></a>
+        <i class="bx bx-menu" id="icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#project">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Hello, I'm</h3>
+            <h1>Karishma Verma</h1>
+            <h3>And I'm a <span class="text">Full Stack Developer</span></h3>
+            <p>Experienced software engineer with expertise in Angular and Java, passionate about building scalable applications and microservices.</p>
+            <div class="fallow">
+                <a href="https://www.facebook.com/karishma.verma.54540?mibextid=ZbWKwL" target="_blank"><i class="bx bxl-facebook"></i></a>
+                <a href="https://instagram.com/karishm_a01?igshid=MzNlNGNkZWQ4Mg==" target="_blank"><i class="bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/karishma-verma10550330a" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://github.com/Karishmaverma052" target="_blank"><i class="bx bxl-github"></i></a>
+            </div>
+            <a href="Karishma-Verma-portfolio-main/Karishma Verma CV UP (1).pdf" download class="btn">Download CV</a>
+        </div>
+        <div class="pic">
+            <div class="circle">
+                <span></span>
+                <span></span>
+                <div class="devpic">
+                    <img src="Karishma.jpg" alt="Karishma Verma">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="heading">About <span>Me</span></h2>
+        <div class="row">
+            <h2>Software Engineer</h2>
+            <p>I'm a B-Tech graduate in Computer Science & Engineering with experience in full-stack development, specializing in Angular and Java. I enjoy solving complex problems and building efficient, user-friendly applications.</p>
+            
+            <div class="box-container">
+                <div class="box1">
+                    <p><span>Age:</span> 25</p>
+                    <p><span>Gender:</span> Female</p>
+                    <p><span>Education:</span> B-Tech CSE (AKTU)</p>
+                    <p><span>City:</span> Lucknow, India</p>
+                </div>
+                <div class="box1">
+                    <p><span>Email:</span> karishmaverma9002@gmail.com</p>
+                    <p><span>Phone:</span> 8927795970</p>
+                    <p><span>Freelance:</span> Available</p>
+                    <p><span>Languages:</span> English, Hindi</p>
+                </div>
+            </div>
+            
+            <div class="coding">
+                <h1 class="head">Technical Skills</h1>
+                <div class="codingContainer">
+                    <div class="box2">
+                        <h3>Frontend</h3>
+                        <p>Angular, HTML5, CSS, JavaScript, Bootstrap</p>
+                    </div>
+                    <div class="box2">
+                        <h3>Backend</h3>
+                        <p>Java, Node.js, REST APIs, Spring Boot</p>
+                    </div>
+                    <div class="box2">
+                        <h3>Databases</h3>
+                        <p>MySQL, MongoDB</p>
+                    </div>
+                    <div class="box2">
+                        <h3>Tools</h3>
+                        <p>Eclipse, VS Code, Git, IntelliJ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <h2 class="heading">My <span>Experience</span></h2>
+        <div class="scontainer">
+            <div class="box">
+                <i class="bx bx-code-alt"></i>
+                <h3>Software Engineer</h3>
+                <h4>MCD IN NIC | June 2024 – Aug 2025</h4>
+                <p>Developed an advertisement website using Angular v19, increasing efficiency by 40%. Created REST APIs using Java in Eclipse IDE to support municipal projects impacting 1.5+ million citizens.</p>
+            </div>
+            <div class="box">
+                <i class="bx bx-test-tube"></i>
+                <h3>Quality Engineer</h3>
+                <h4>FLEX Chennai | June 2019– Aug 2020</h4>
+                <p>Worked as QA to ensure all tools were functioning properly, gaining valuable experience in quality assurance processes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+   <section class="project" id="project">
+    <h2 class="heading">My <span>Projects</span></h2>
+    <div class="projectContainer">
+        <div class="Pbox">
+            <img src="Trade-License-in-Delhi.jpg" alt="Health Trade License">
+            <div class="layer">
+                <h2>HTL2 System</h2>
+                <p>Developed using Spring Boot and REST API</p>
+                <a href="https://mcdonline.nic.in/htlmcd/web/citizen/info"><i class="bx bx-link-external"></i></a>
+            </div>
+        </div>
+        <div class="Pbox">
+            <img src="tex.avif" alt="PTR G8 Module">
+            <div class="layer">
+                <h2>PTR G8 Module</h2>
+                <p>Developed using Angular v19 and Node.js</p>
+                <a href="https://mcdonline.nic.in/ptrmcd/web/citizen/info?loginActive=N&moduleCode=BUN"><i class="bx bx-link-external"></i></a>
+            </div>
+        </div>
+        <div class="Pbox">
+            <img src="advertisement.jpg" alt="Advertisement System">
+            <div class="layer">
+                <h2>Advertisement System</h2>
+                <p>Built with Angular v13 and Node.js</p>
+                <a href="https://mcdonline.nic.in/petmcd/web/citizen/info"><i class="bx bx-link-external"></i></a>
+            </div>
+        </div>
+      
+          <div class="Pbox">
+            <img src="learning-management-system.webp" alt="Learning Management System">
+            <div class="layer">
+                <h2>Full Stack LMS</h2>
+                <p>A platform for managing online educational content</p>
+                <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="#">
+            <div class="ibox">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="ibox">
+                <input type="tel" placeholder="Mobile Number">
+                <input type="text" placeholder="Subject">
+            </div>
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="ftext">
+            <p>Copyright &copy; 2023 by Karishma Verma | All Rights Reserved</p>
+        </div>
+        <div class="ficon">
+            <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const menuIcon = document.getElementById('icon');
+        const navbar = document.querySelector('.navbar');
+        
+        menuIcon.onclick = () => {
+            navbar.classList.toggle('active');
+        };
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+
+        // Typing Animation
+        const typed = new Typed('.text', {
+            strings: ['Full Stack Developer', 'Angular Specialist', 'Java Developer'],
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 1000,
+            loop: true
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
